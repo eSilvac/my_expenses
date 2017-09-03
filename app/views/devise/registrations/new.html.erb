@@ -1,0 +1,49 @@
+<div class="container-fluid new-registration">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 principal">
+      <h3 class="text-center">Sign In to Expensify</h3>
+      
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class:"form-control" %>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-xs-6 first-name">
+           <%= f.label :first_name %><br />
+           <%= f.text_field :first_name, class:"form-control" %>
+          </div>
+
+          <div class="form-group col-xs-6 second-name">
+           <%= f.label :last_name %><br />
+           <%= f.text_field :last_name, class:"form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn btn-success btn-lg btn-block" %>
+        </div>
+      <% end %>
+      <div class="col-xs-12 text-center login">
+        <span>Already have an account?</span>
+        <span><%= link_to "Login", new_user_session_path %></span>
+      </div> 
+    </div>    
+  </div>  
+</div>

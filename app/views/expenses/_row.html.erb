@@ -1,0 +1,21 @@
+<tr id="<%= expense.id %>">
+  <td class="date">
+    <div class="day"><%= expense.date.day %></div>
+    <div class="month"><%= expense.date.strftime("%b") %></div>
+  </td>
+  <td>
+    <div>
+      <span class="concept"><%= expense.concept.capitalize %></span>
+    </div>
+    <div>
+      <span class="type"><%= expense.transaction_type.capitalize %></span>
+    </div>
+  </td>
+  <td class="category text-right"><%= expense.category.name %></td>
+  <td class="text-right" style="width: 170px;">
+    <div class="amount">$<%= number_with_precision(expense.amount, precision: 2, delimiter: ',') %></div>
+    <div class="actions">
+      <%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_expense_path(expense), remote: true, class:"edit" %>
+      <%= link_to '<span class="glyphicon glyphicon-trash"></span> Delete'.html_safe, expense, method: :delete, remote: true, class:"delete", data: {confirm: 'Are you sure?' }  %>
+  </td>
+</tr>

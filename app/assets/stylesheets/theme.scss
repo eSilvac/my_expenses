@@ -1,0 +1,59 @@
+$gray-darker:                      #33373a;
+$gray:                             #778086;
+$gray-light:                       #b7bfc1;
+
+$brand-success:                    $gray;
+$brand-secondary:                  rgb(100, 206, 227);
+$brand-primary:                    rgb(25, 180, 227);
+
+$body-bg:                          $gray-darker;
+$text-color:                       $gray-dark;
+
+$btn-primary-color:                #fff;
+
+$btn-default-color:                $text-color;
+$btn-default-bg:                   $gray;
+$btn-default-border:               $btn-default-bg;
+
+$link-color:                       $brand-primary;
+$link-hover-color:                 lighten($link-color, 10%);
+$link-hover-decoration:            none;
+
+$font-family-sans-serif:           "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-base:                   16px;
+
+$input-bg:                         $gray;
+$input-color:                      $gray-light;
+$input-border:                     $gray;
+
+$table-border-color:               $gray;
+$table-bg-hover:                   $gray-dark;
+
+$padding-base-vertical:            10px;
+$padding-base-horizontal:          15px;
+
+$padding-large-vertical:           18px;
+$padding-large-horizontal:         27px;
+
+$navbar-height:                    60px;
+$navbar-inverse-color:             #c2c6c9;
+$navbar-inverse-bg:                $brand-secondary;
+
+$navbar-inverse-link-active-color: #ccc;
+$navbar-inverse-link-active-bg:    $body-bg;
+
+$list-group-bg:                    $gray-darker;
+$list-group-border:                $gray;
+$list-group-hover-bg:              $gray-dark;
+
+$list-group-link-hover-color:      $text-color;
+
+$close-color:                      #000;
+$close-text-shadow:                none;
+
+$panel-bg:                         $gray-dark;
+$panel-inner-border:               $gray;
+
+$panel-default-text:               $text-color;
+$panel-default-border:             #303437;
+$panel-default-heading-bg:         #303437;

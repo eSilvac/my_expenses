@@ -1,0 +1,55 @@
+.modal-expense {
+  color: $text-color;
+
+  .form-control{
+    color: $gray-darker !important;
+    background-color: $gray-light;
+    border: 1px solid $gray-darker;
+  }
+
+  .modal-content {
+    border-radius: 4px;
+  }
+
+  .modal-header {
+    border-color: $gray;
+    background-color: $brand-secondary;
+  }
+
+  .modal-body {
+    background-color: whitesmoke;
+
+    input.btn-default {
+      font-size: 15px;
+      margin-top: 30px;
+      padding: 9px 12px;
+      background-color: $brand-secondary;
+    }
+
+    .input-group-addon {
+      border: 1px solid $gray-darker;
+      &:first-child { 
+        border-right: 0px;
+      }
+      &:last-child {
+        border-left: 0px ;
+      }
+    }
+
+    .category-form {
+      .category-select {
+        padding-right: 0px;
+      }
+    }
+  }
+
+  .modal-footer {
+    border-color: $gray;
+    background-color: #cbcbcb;
+    padding: 7px 15px;
+  }
+
+  .btn {
+    border: 0.5px solid $gray-darker;
+  }
+}

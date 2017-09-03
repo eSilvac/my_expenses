@@ -1,0 +1,8 @@
+<% if params[:q].present? %>
+  <div class="search-info text-center">
+    <span class="alert alert-info">Results for <strong>"<%= params[:q] %>"</strong></span>
+  </div>
+<% end %>
+<% expenses.each do |expense| %>
+  <%= render "expenses/row", expense: expense %>
+<% end %>

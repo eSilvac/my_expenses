@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4 class="filter-header">Transaction Type <span>Choose to filter</span></h4>
+      <div class="filter-type">
+        <%= render 'transaction_filter' %>
+      </div>
+
+      <h4 class="filter-header">Category <span>Choose to filter</span></h4>
+
+      <div class="filter-type">
+        <div class="category-list">
+          <%= render 'categories/category_filter', categories: @categories %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 index-data">
+      <div class="row" style="margin-top: 10px;">
+        <div class="summary-box col-md-4 text-center">
+          <div class="summary-value">$ <%= number_with_precision(total_amount(@expenses), precision: 2, delimiter: ',') %></div>
+          <div class="summary-label">Total</div>
+        </diV>
+        <div class="summary-box col-md-4 text-center">
+          <div class="summary-value"><%= @expenses.count %></div>
+          <div class="summary-label">Transactions</div>
+        </div>
+        <div class="summary-box col-md-4 text-center">
+          <div class="summary-value">$ <%= number_with_precision(average(@expenses), precision: 2, delimiter: ',') %></div>
+          <div class="summary-label">Average</div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-12">
+          <%= link_to '<span class="glyphicon glyphicon-plus"></span> New Expense'.html_safe, new_expense_path, remote: true, class:"btn btn-success pull-left" %>
+          <h4 class="dropdown pull-right">
+            <%= form_tag expenses_path, method: :get do %>
+              <%= select_tag :date, options_for_select(months_list, params[:date]), {:onchange => 'this.form.submit()', class:"dropdown-toggle btn btn-default btn-sm" } %>
+              <%= hidden_field_tag :q, params[:q] if params[:q].present? %>
+              <%= hidden_field_tag :category, params[:category] if params[:category].present? %>
+              <%= hidden_field_tag :transaction, params[:transaction] if params[:transaction].present? %>
+            <% end %>
+          </h4>
+        </div>
+      </div>
+      <table id="expenses-table" class="table table-hover" style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th class="text-center">Day</th>
+            <th>Concept</th>
+            <th class="text-right">Category</th>
+            <th class="text-right">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render "expenses", expenses: @expenses_paginated %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= will_paginate @expenses_paginated, renderer: BootstrapPagination::Rails, inner_window: 1 %>
+      </div>
+      <% if @expenses.count == 0 %>
+        <h4 class="empty-message text-center">No Expenses Found</h4>
+      <% end %>
+    </div>
+  </div>
+</div>

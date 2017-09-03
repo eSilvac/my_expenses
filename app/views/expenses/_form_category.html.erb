@@ -1,0 +1,22 @@
+<label>Category</label>
+<% if is_new_record || current_user.categories.count == 0 %>
+  <span class="error-message" id="new-category" style="display: none"></span>
+  <div class="form-group row">
+    <div class="col-xs-9 category-select">  
+      <%= text_field_tag "expense[new_category_name]", nil , class: "form-control", placeholder: "New Category Name" %>
+    </div>
+    <div class="col-xs-3">
+      <span class="btn btn-default select-category"><span class="glyphicon glyphicon-chevron-left"></span></span>
+    </div>          
+  </div>
+<% else %>
+  <span class="error-message" id="category" style="display: none"></span>
+  <div class="form-group row">
+    <div class="col-xs-9 category-create">  
+      <%= select_tag "expense[category_id]", options_from_collection_for_select(current_user.categories, :id, :name, @expense.category_id), {class: 'form-control', prompt: "--Select Category--"} %>
+    </div>
+    <div class="col-xs-3">
+      <span class="btn btn-default creat-category"><span class="glyphicon glyphicon-plus"></span></span>
+    </div>          
+  </div>
+<% end %>

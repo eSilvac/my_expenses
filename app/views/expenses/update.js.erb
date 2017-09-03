@@ -1,0 +1,30 @@
+<% if @expense.errors.empty? %>
+  $('#expenses-table tbody tr#<%= @expense.id %>').replaceWith(' <%= j render "row", expense: @expense %>');
+  $('.filter-type .category-list').empty().append('<%= j render "categories/category_filter", categories: @categories %>');
+  $('.alert-messages').append('<%= j render "layouts/messages", expense_name: @expense.concept, status: "update" %>');
+  $('#expense-modal').modal('hide');
+<% else %>
+  $('.form-group .error-message').hide();
+  $('.error').removeClass('error');
+  
+  <% @expense.errors.each do |error| %>
+   var pos = $('#<%= error %>')
+   pos.show();
+   pos.html('<%= @expense.errors[error].join(", ") %>');
+   pos.closest('.form-group').addClass('error');
+  <% end %>
+
+  if ($('#expense_new_category_name').val() !== undefined) {
+   var new_category = $('#expense_new_category_name').val();
+   if (new_category.length >= 20 || new_category.length <= 0 ) {
+      var pos = $('#expense_new_category_name').closest('.category-form');
+      pos.addClass('error');
+      pos.find('.error-message').text('No puede ser mayor a 20').show();
+   }
+  }
+  if ($('#expense_category_id').val() === '') {
+    var pos = $('#expense_category_id').closest('.category-form');
+    $('.category-form').addClass('error');
+    $('.category-form').find('.error-message').text("can't be blank").show();
+  }
+<% end %>

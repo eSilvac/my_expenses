@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expenses</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  </head>
+
+  <body class="<%= controller_name %>-<%= action_name %>">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "Expensify", dashboard_index_path, class:"navbar-brand" %>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <% if user_signed_in? %>
+            <ul class="nav navbar-nav">
+              <li class="<%= 'active' if @tab == :dashboard %>"><%= link_to "Dashboard", dashboard_index_path %></li>
+              <li class="<%= 'active' if @tab == :expenses %>"><%= link_to "Expenses", expenses_path %></li>
+              <% if controller_name == 'expenses' %>
+                <li>
+                  <%= form_tag expenses_path, method: :get, class:"navbar-form" do %>
+                    <%= text_field_tag :q, nil, class:"form-control", placeholder: 'Search expenses', value: params[:q] %>
+                    <%= hidden_field_tag :category, params[:category] if params[:category].present? %>
+                    <%= hidden_field_tag :transaction, params[:transaction] if params[:transaction].present? %>
+                    <%= hidden_field_tag :date, params[:date] if params[:date].present? %>
+                    
+                    <%= button_tag(nil, class: "btn btn-default", name: nil) do %>
+                      <%= fa_icon "search" %>
+                    <% end %>  
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.name %> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class="text-right"><a href="#" data-toggle="modal" data-target="#token-modal">ApiKey <%= fa_icon "key" %></a></li>
+                  <li class="text-right"><%= link_to "Log Out #{fa_icon "sign-out"}".html_safe, destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to '<span class="glyphicon glyphicon-user"></span> Sign Up'.html_safe, new_user_registration_path %></li>
+              <li><%= link_to '<span class="glyphicon glyphicon-log-in"></span> Login'.html_safe, new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="alert-messages"></div>
+    <%= render "layouts/token" %>
+    <%= yield %>
+  </body>
+</html>

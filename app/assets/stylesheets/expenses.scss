@@ -1,0 +1,122 @@
+.filter-header {
+  color: #808487;
+
+  span {
+    display: block;
+    color: #808487;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+}
+
+.filter-type {
+  padding: 7px 15px;
+  .category, .transaction {
+    font-size: 14px;
+    padding: 0;
+    .category-name, .transaction-name { 
+      cursor: pointer;
+      text-decoration: none;
+      word-wrap: break-word;
+      color: #808487;
+      padding-left: 25px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .category-destroy {
+      color: #BD0000;
+      cursor: pointer;
+      visibility: hidden;
+      span {
+        padding-top: 12px;
+      }
+    }
+  }
+  .active { 
+    background-color: $gray;
+    border-color: $gray;
+    .category-name { color: white; }
+  }
+  .category:hover { 
+    background-color: whitesmoke;
+    span { visibility: visible; }
+  }
+  
+  .transaction:hover { background-color: whitesmoke;}
+
+  .active:hover {
+    background-color: $gray;
+    span { visibility: visible; }
+  }
+}
+
+.summary-box {
+  padding: 10px;
+
+  .summary-value {
+    font-size: 24px;
+  }
+
+  .summary-label { color: #666; }
+}
+
+#expenses-table {
+  margin-top: 10px !important;
+  .date {
+    width: 50px;
+    text-align: center;
+
+    .day {
+      font-size: 21px;
+      line-height: 1.1em;
+    }
+    .month { font-size: 13px; }
+  }
+  .excluded { margin-left: 5px; }
+  .type { color: $gray; }
+  .concept {
+    color: $gray-darker;
+    font-size: 14.5px;
+  }
+  .category {
+    width: 150px;
+  }
+  .amount {
+    font-size: 16px;
+  }
+  .actions {
+    a {
+      visibility: hidden;
+      font-size: 13px;
+      cursor: pointer;
+      margin-left: 10px;
+      &.edit {
+        color: #D47A12;
+      }
+      &.delete {
+        color: #BD0000;
+      }
+    }
+  }
+
+  tr:hover .actions a { visibility: visible; }
+}
+
+.pagination {
+  margin-top: 0;
+  > li {
+    > a {
+      color: black;
+    }
+  }
+  > .active {
+    > span {
+      border-color: black;
+      background-color: #ca0000;
+      &:hover {
+        background-color: #ca0000;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,25 @@
+.total-box {
+  text-align: center;
+  font-size: 24px;
+
+  span {
+    display: block;
+    color: #bbb;
+    font-size: 12px;
+  }
+}
+.panel {
+  border-radius: 15px;
+  .panel-heading { 
+    background-color: #ffcc33;
+    padding: 15px 20px; 
+    border:1px solid #333333;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 15px;
+    color: black;
+  }
+  .panel-body {
+    padding: 0;
+  }
+}

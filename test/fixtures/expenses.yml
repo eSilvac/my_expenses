@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: expenses
+#
+#  id               :integer          not null, primary key
+#  transaction_type :integer
+#  concept          :string
+#  amount           :float
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  user_id          :integer
+#  category_id      :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction_type: 1
+  concept: "Primer Gasto"
+  amount: 5000
+  category: one
+
+two:
+  transaction_type: 2
+  concept: "Segundo Gasto"
+  amount: 10000
+  category: two

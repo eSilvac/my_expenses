@@ -1,0 +1,20 @@
+<% if status == "created" %>
+  <div class="alert alert-success alert-dismissible text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Expense <strong><%= expense_name %></strong> Successfully Created.
+  </div>
+<% end %>
+
+<% if status == "update" %>
+  <div class="alert alert-warning alert-dismissible text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Expense <strong><%= expense_name %></strong> Successfully Updated.
+  </div>
+<% end %>
+
+<% if status == "delete" %>
+  <div class="alert alert-danger alert-dismissible text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Expense<strong><%= expense_name %></strong> Successfully Deleted.
+  </div>
+<% end %>

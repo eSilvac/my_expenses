@@ -1,0 +1,13 @@
+<% Expense.transaction_types.keys.each do |transaction| %>
+  <div class="row transaction list-group-item <%= params[:transaction] == transaction ? "active" : "" %>">
+    <% if params[:transaction] == transaction %>
+      <%= link_to expenses_path(category: params[:category], date: params[:date], q: params[:q]), class:"category-name col-xs-12" do %>
+        <span><%= transaction.humanize %></span>
+      <% end %>
+    <% else %>
+      <%= link_to expenses_path(transaction: transaction, category: params[:category], date: params[:date], q: params[:q]), class:"transaction-name col-xs-12" do %>
+        <span><%= transaction.humanize %></span>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<% if @expense.errors.empty? %>
+  $('#expenses-table tbody').empty().append('<%= j render "expenses/expenses", expenses: @expenses %>');
+  $('.filter-type .category-list').empty().append('<%= j render "categories/category_filter", categories: @categories %>');
+  $('.alert-messages').append('<%= j render "layouts/messages", expense_name: @expense.concept, status: "created" %>');
+  $('#expense-modal').modal('hide');
+  $('.dropdown #date').prop("selectedIndex", 0);
+<% else %>
+  $('.form-group .error-message').hide();
+  $('.error').removeClass('error');
+
+  <% @expense.errors.each do |error| %>
+    $('#<%= error %>').html('<%= @expense.errors[error].join(", ") %>').show();
+    $('#<%= error %>').closest('.form-group').addClass('error');
+  <% end %>
+
+  <% if @category != nil %>
+    <% unless @category.valid? %>
+      $('.category-form').addClass('error');
+      $('.category-form').find('.error-message').html('<%= @category.errors[:name].join(", ") %>').show();
+    <% end %>
+  <% end %>
+<% end %>

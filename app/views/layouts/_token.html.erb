@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <div class="modal fade" id="token-modal" role="dialog">
+    <div class="modal-dialog token-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="text-center modal-title">Api Token</h4>
+        </div>
+        <div class="modal-body text-center">
+          <div class="well well-sm text-center"><%= current_user.api_token %></div>
+          <span class="message">Use this Token to Create, Edit, and Destroy Expenses in the <strong>API</strong>.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
