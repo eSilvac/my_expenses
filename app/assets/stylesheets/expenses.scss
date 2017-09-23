@@ -1,9 +1,9 @@
 .filter-header {
-  color: #808487;
+  color: #505254;
 
   span {
     display: block;
-    color: #808487;
+    color: #6B6F71;
     font-size: 14px;
     margin-top: 5px;
   }
@@ -30,6 +30,27 @@
       span {
         padding-top: 12px;
       }
+    }
+  }
+  .create-category {
+    text-align: center;
+    padding: 7px;
+    background-color: #7E7E7E;
+    a {
+      cursor: pointer;
+      color: white;
+      padding: 3px 0 ;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .text-category-name, .button {
+      display: none;
+      padding: 0;
+    }
+    .category-error {
+      margin-bottom: 3px;
+      border: 1px solid red !important;
     }
   }
   .active { 

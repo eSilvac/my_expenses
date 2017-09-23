@@ -1,0 +1,7 @@
+<% if @category.errors.empty? %>
+  $('.filter-type .category-list').empty().append('<%= j render "categories/category_filter", categories: @categories %>');
+  $('.alert-messages').append('<%= j render "layouts/messages",type: "Category", name: @category.name, status: "created" %>');
+<% else %>
+  $('.filter-type .create-category .error-message').html('<%= @category.errors.full_messages[0] %>');
+  $('.filter-type .create-category .text-category-name').addClass('category-error');
+<% end %>

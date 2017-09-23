@@ -11,7 +11,9 @@
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "Category is not created without a name" do
+    category = Category.new
+    assert_not category.valid?
+    assert_not_nil category.errors[:name]
+  end
 end

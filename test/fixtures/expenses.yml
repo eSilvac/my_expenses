@@ -24,4 +24,4 @@ two:
   transaction_type: 2
   concept: "Segundo Gasto"
   amount: 10000
-  category: two
+  category: two, one

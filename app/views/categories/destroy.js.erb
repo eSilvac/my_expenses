@@ -1,3 +1,4 @@
 $('.filter-type .category#<%= @category.id %>').fadeOut(200, function(){ $(this).remove(); });
 $('#expenses-table tbody').empty().append('<%= j render "expenses/expenses", expenses: @new_expenses_list %>');
+$('.alert-messages').append('<%= j render "layouts/messages",type: "Category", name: @category.name, status: "delete" %>');
 $('.dropdown #date').prop("selectedIndex", 0);

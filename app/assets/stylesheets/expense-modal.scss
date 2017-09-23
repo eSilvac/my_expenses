@@ -8,16 +8,17 @@
   }
 
   .modal-content {
+    border: 2px solid #EEEEEE;
     border-radius: 4px;
   }
 
   .modal-header {
-    border-color: $gray;
-    background-color: $brand-secondary;
+    color: whitesmoke;
+    background-color: #333333;
   }
 
   .modal-body {
-    background-color: whitesmoke;
+    background-color: #EEEEEE;
 
     input.btn-default {
       font-size: 15px;
@@ -37,7 +38,7 @@
     }
 
     .category-form {
-      .category-select {
+      .category-select, .category-create {
         padding-right: 0px;
       }
     }
@@ -45,7 +46,7 @@
 
   .modal-footer {
     border-color: $gray;
-    background-color: #cbcbcb;
+    background-color: #333333;
     padding: 7px 15px;
   }
 

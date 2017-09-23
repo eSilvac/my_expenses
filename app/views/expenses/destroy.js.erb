@@ -1,2 +1,2 @@
 $('#expenses-table tbody tr#<%= @expense.id %>').fadeOut(200, function(){ $(this).remove(); });
-$('.alert-messages').append('<%= j render "layouts/messages", expense_name: @expense.concept, status: "delete" %>');
+$('.alert-messages').append('<%= j render "layouts/messages", type: "Expense", name: @expense.concept, status: "delete" %>');

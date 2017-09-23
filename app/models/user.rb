@@ -26,7 +26,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :expenses
-  has_and_belongs_to_many :categories
+  has_and_belongs_to_many :categories, -> { distinct }
 
   before_create :generate_token
 

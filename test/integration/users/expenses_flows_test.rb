@@ -1,6 +1,7 @@
 require 'application_system_test_case'
 
 class ExpensesFlowsTest < ApplicationSystemTestCase
+  
   test "user can create expense", js: true do
     visit expenses_path
     user_login
@@ -25,9 +26,9 @@ class ExpensesFlowsTest < ApplicationSystemTestCase
 
     sleep 1
     expense = Expense.find_by_concept('Test1')
-    assert expense.nil?
+    assert_nil expense
   end
-
+  
   private
     def user_login
       fill_in 'Email', with: users(:one).email

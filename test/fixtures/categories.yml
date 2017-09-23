@@ -13,7 +13,3 @@
 one:
   name: "Games"
   users: one
-
-two:
-  name: "Travel"
-  users: one

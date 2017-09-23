@@ -15,7 +15,8 @@
 require 'test_helper'
 
 class ExpenseTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "Expense is not created without any param" do
+    expense = Expense.new
+    assert_not expense.valid?
+  end
 end

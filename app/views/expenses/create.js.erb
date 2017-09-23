@@ -1,7 +1,7 @@
 <% if @expense.errors.empty? %>
   $('#expenses-table tbody').empty().append('<%= j render "expenses/expenses", expenses: @expenses %>');
   $('.filter-type .category-list').empty().append('<%= j render "categories/category_filter", categories: @categories %>');
-  $('.alert-messages').append('<%= j render "layouts/messages", expense_name: @expense.concept, status: "created" %>');
+  $('.alert-messages').append('<%= j render "layouts/messages",type: "Expense", name: @expense.concept, status: "created" %>');
   $('#expense-modal').modal('hide');
   $('.dropdown #date').prop("selectedIndex", 0);
 <% else %>

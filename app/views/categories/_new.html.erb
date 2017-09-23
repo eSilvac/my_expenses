@@ -1,0 +1,25 @@
+<%= form_for @category, remote: true do |f| %>
+  <div class="col-xs-10 text-category-name">
+    <%= f.text_field :name, class:"form-control input-sm", autofocus:true %>    
+  </div>
+  <div class="col-xs-2 button">
+    <%= button_tag(nil, class:"btn btn-default btn-sm", name: nil, id:"category_button") do %>
+      <%= fa_icon "plus" %>
+    <% end %> 
+  </div>
+  <span class="label label-danger error-message"></span>
+<% end %>
+<script>
+  $(document).on('click', function(e) {
+    let actual = e.target.id
+    let pos = $(".filter-type .create-category .text-category-name")
+    if ( actual != 'category_name' &&  actual != 'category_button' ) {
+      $(".filter-type .create-category .button").fadeOut("slow");
+      $('.filter-type .create-category .error-message').fadeOut("slow");
+      pos.hide("slide", { direction: "left" }, 800);
+      pos.promise().done(function(){
+        pos.closest(".create-category").html("<%= j render "categories/new_link" %>")
+      });
+    };
+  });
+</script>

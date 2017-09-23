@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: 'users/sessions'}
 
   resources :expenses
-  resources :categories, only: [:destroy]
+  resources :categories, only: [:new, :create, :destroy]
   resources :dashboard, only: [:index]
 
   namespace :api, defaults: { format: :json } do

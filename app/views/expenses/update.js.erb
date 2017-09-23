@@ -1,7 +1,7 @@
 <% if @expense.errors.empty? %>
   $('#expenses-table tbody tr#<%= @expense.id %>').replaceWith(' <%= j render "row", expense: @expense %>');
   $('.filter-type .category-list').empty().append('<%= j render "categories/category_filter", categories: @categories %>');
-  $('.alert-messages').append('<%= j render "layouts/messages", expense_name: @expense.concept, status: "update" %>');
+  $('.alert-messages').append('<%= j render "layouts/messages",type:"Expense", name: @expense.concept, status: "update" %>');
   $('#expense-modal').modal('hide');
 <% else %>
   $('.form-group .error-message').hide();

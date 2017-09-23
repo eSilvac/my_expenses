@@ -22,7 +22,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "User is not created without a name" do
+    user = User.new
+    assert_not user.valid?
+  end
 end
