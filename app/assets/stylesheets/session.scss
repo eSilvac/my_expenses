@@ -7,16 +7,27 @@
     margin-top: 70px;
     .new_user {
       background-color: white;
-      margin-top: 35px;
       padding: 20px 15px;
       border: 1px solid #afafaf;
       border-radius: 4px;
     }
-  .sign-up {
-      background-color: #333333;
+    .sign-up {
+      background-color: #555555;
       padding: 15px 0;
       border-radius: 5px;
       color: white;
+    }
+    .title {
+      background-color: #333333;
+      margin-bottom: 40px;
+      padding: 10px;
+      border-radius: 15px;
+      a {
+        color: whitesmoke;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 }

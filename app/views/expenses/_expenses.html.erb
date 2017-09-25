@@ -1,6 +1,6 @@
 <% if params[:q].present? %>
   <div class="search-info text-center">
-    <span class="alert alert-info">Results for <strong>"<%= params[:q] %>"</strong></span>
+    <span class="alert alert-info">Results for <strong>"<%= params[:q] %>". <%= link_to "Clear Search", expenses_path, class:"clear_search" %></strong></span>
   </div>
 <% end %>
 <% expenses.each do |expense| %>

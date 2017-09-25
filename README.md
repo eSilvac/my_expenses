@@ -1,24 +1,26 @@
-# README
+# Expensify
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Expensify** helps you to manage your daily expenses in a easy and fast way, allowing you to create how many expenses you want.
 
-Things you may want to cover:
+The users can manage to a maximun of 10 categories at same time.
 
-* Ruby version
+## Setup
 
-* System dependencies
+This is a Rails 5. Once you have that installed, download the project by cloning it from Git:
 
-* Configuration
+```
+$ git clone https://github.com/eSilvac/my_expenses.git
+```
 
-* Database creation
+Then, install the dependencies with:
 
-* Database initialization
+```
+$ bundle
+```
 
-* How to run the test suite
+Run the migrations and seed the database by executing:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ rails db:migrate
+$ rails db:seed
+```

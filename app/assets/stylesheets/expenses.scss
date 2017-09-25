@@ -123,6 +123,11 @@
   tr:hover .actions a { visibility: visible; }
 }
 
+.clear_search {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
 .pagination {
   margin-top: 0;
   > li {
