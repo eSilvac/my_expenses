@@ -1,0 +1,15 @@
+machine:
+  timezone:
+    America/Bogota
+  ruby:
+    version: 2.4.0-p0
+
+  test:
+    minitest_globs:
+      - test/**/*_test.rb
+
+  deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: boiling-dusk-99769
