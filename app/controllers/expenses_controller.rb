@@ -17,27 +17,6 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
   end
 
-  # def create2
-  #   @categories = Category.all
-  #   if expense_params[:new_category_name] != nil 
-  #     category_name = expense_params[:new_category_name]
-  #     params[:expense].delete :new_category_name
-  #     @expense = Expense.create(expense_params.merge(user: current_user))
-  #     @category = is_new_category(@categories, category_name)
-  #     if @expense.errors.count == 1 
-  #       @category.save if @category.new_record?
-  #       @category.expenses << @expense if @category.errors.empty?
-  #     end
-  #   else
-  #     @expense = Expense.create(expense_params.merge(user: current_user))
-  #     @category = @categories.where(id: params[:category_id]).take
-  #   end
-  #   @categories = current_user.categories.order('name')
-  #   @expenses = current_user.expenses
-  #   @expenses = @expenses.where(date: @expense.date.beginning_of_month..@expense.date.end_of_month).order('date DESC') if @expense.valid?
-  #   @expenses = @expenses.paginate(:page => params[:page], :per_page => 8)
-  # end
-
   def create
     if expense_params[:new_category_name] != nil 
       @category = Category.find_or_initialize_by(name: expense_params[:new_category_name])

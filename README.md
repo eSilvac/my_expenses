@@ -1,8 +1,8 @@
 # Expensify
 
-**Expensify** helps you to manage your daily expenses in a easy and fast way, allowing you to create how many expenses you want.
+**Expensify** helps you to manage your daily expenses in a easy and fast way, allowing you to create as many expenses as you want.
 
-The users can manage to a maximun of 10 categories at same time.
+The users can manage multiple categories at the same time.
 
 ## Setup
 
