@@ -60,11 +60,10 @@
     $('.select-category').on('click', function(){
       $('.category-form').empty().append('<%= j render "form_category", is_new_record: false %>');
     });
-
+    
     $('.datepicker1').datepicker({
       format: "dd-mm-yyyy",
       endDate : 'now'
     });
-
   });
 </script>

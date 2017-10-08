@@ -16,6 +16,7 @@
     if ( actual != 'category_name' &&  actual != 'category_button' ) {
       $(".filter-type .create-category .button").fadeOut("slow");
       $('.filter-type .create-category .error-message').fadeOut("slow");
+      
       pos.hide("slide", { direction: "left" }, 800);
       pos.promise().done(function(){
         pos.closest(".create-category").html("<%= j render "categories/new_link" %>")

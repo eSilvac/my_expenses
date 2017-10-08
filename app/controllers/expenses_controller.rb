@@ -72,5 +72,3 @@ class ExpensesController < ApplicationController
       end
     end
 end
-
-#category.expenses << expense if category.expenses.where(id: expense.id).empty?
